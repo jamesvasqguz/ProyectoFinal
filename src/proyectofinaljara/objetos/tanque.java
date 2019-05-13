@@ -5,15 +5,29 @@ import javax.swing.JLabel;
  *
  * @author jara
  */
+
+/**
+ *Clase tanque extiende de vehiculos 
+ */
 public class tanque extends vehiculos{
+    //Atributos de la clase tanque
     public final int ATAQUE_INICIAL = 10;
     public final int DEFENSA_INICIAL = 6;
     public final int PUNTERIA_INICIAL = 60;
 
+    /**
+     * Constructor de la clase tanque
+     * @param nombreVehiculo
+     * @param imagen
+     * @param boot 
+     */
     public tanque(String nombreVehiculo, JLabel imagen, boolean boot) {
         super(nombreVehiculo, imagen, boot);
     }
-    
+    /**
+     * Metodos que devuelven los atributos de los vehiculos
+     * @param ataque 
+     */
    @Override
     public void ataqueSubidaDeNivel(int ataque) {
         setAtaque(ataque+2);

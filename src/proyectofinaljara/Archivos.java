@@ -14,7 +14,14 @@ import java.util.List;
  * @author jara
  */
 public class Archivos<T> {
-    
+    /**
+     * Metodo booleano para crear un archivo de los objetos
+     * @param archivo
+     * @param pathInicial
+     * @param pathNombreArchivo
+     * @param tipoDeArchivoPath
+     * @return 
+     */
     public  boolean crearArchivo(T archivo, String pathInicial,  String pathNombreArchivo, String tipoDeArchivoPath) {
         File file = new File(pathInicial + "(" + pathNombreArchivo + ")" + tipoDeArchivoPath );
         try (FileOutputStream fileOutputStream = new FileOutputStream(file);
@@ -28,7 +35,13 @@ public class Archivos<T> {
         }
         return true;
     }
-    
+    /**
+     * Metodo que permite leer el archivo de los objetos
+     * @param pathInicial
+     * @param pathNombreArchivo
+     * @param tipoDeArchivoPath
+     * @return 
+     */
     public T leerArchivo(String pathInicial, String pathNombreArchivo, String tipoDeArchivoPath){
         File file =  new File( pathInicial + "(" + pathNombreArchivo + ")" + tipoDeArchivoPath);
         try (FileInputStream fileInputStream = new FileInputStream(file);
@@ -42,7 +55,11 @@ public class Archivos<T> {
         }
         return null;
     }
-    
+    /**
+     * Metodo que permite leer la lista de los objetos 
+     * @param tipoDeArchivoPath
+     * @return 
+     */
     public  List<T> leerListaDeArchivos(String tipoDeArchivoPath) {
         //averiguar en que carpeta estoy
         //encontrar un listado con todos los archivos de esta carpeta

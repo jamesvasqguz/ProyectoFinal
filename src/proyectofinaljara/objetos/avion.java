@@ -7,17 +7,30 @@ import proyectofinaljara.objetos.vehiculos;
  *
  * @author jara
  */
+
+/**
+ * Clase avion que extiende de vehiculos
+ */
 public class avion extends vehiculos{
- private float velocidad;
+    //Atributos de la clase avion
+    private float velocidad;
     private final float VELOCIDAD_DE_DISPARO = 1f;
     private final int ATAQUE_INICIAL = 7;
     private final int DEFENSA_INICIAL = 3;
     private final int PUNTERIA_INICIAL = 70;
-
+/**
+ * Constructor de la clase avion
+ * @param nombreVehiculo
+ * @param imagen
+ * @param boot 
+ */
     public avion(String nombreVehiculo, JLabel imagen, boolean boot) {
         super(nombreVehiculo, imagen, boot);
     }
-    
+    /**
+     * Metodos que devuelven los atributos de avion
+     * @return 
+     */
     public float getVelocidad() {
         return velocidad;
     }

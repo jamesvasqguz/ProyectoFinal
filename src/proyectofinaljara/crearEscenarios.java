@@ -6,16 +6,33 @@ import proyectofinaljara.objetos.*;
  *
  * @author jara
  */
+/**
+ * 
+ *Clase crearEscenarios
+ */
 public class crearEscenarios {
     private int matrizEscenario[][];
     private enemigo enemigo;
     private escenarios escenarioCrear;
     private Archivos<escenarios> archivoEscenario;
 
+    /**
+     * metodo recibe archivos de escenarios
+     * @param archivoEscenario 
+     */
     public crearEscenarios(Archivos<escenarios> archivoEscenario) {
         this.archivoEscenario = archivoEscenario;
     }
 
+    /**
+     * Metodo que crea lista de escenarios para el juego 
+     * @param m
+     * @param n
+     * @param nombreEscenario
+     * @param agregarAVehiculos
+     * @param pathNombreInicial
+     * @param tipoDeArchivoPath 
+     */
     public void crearEscenarioMultijudador(int m, int n, String  nombreEscenario, Archivos<vehiculos> agregarAVehiculos, String pathNombreInicial, String tipoDeArchivoPath) {
         matrizEscenario = new int[m][n];
         agregarTerrenos(m, n);
@@ -25,7 +42,11 @@ public class crearEscenarios {
         agregarJugadorAEscenario(m, n);
         archivoEscenario.crearArchivo(escenarioCrear, pathNombreInicial, nombreEscenario, tipoDeArchivoPath);
     }
-    
+    /**
+     * metodo que agrega los terrenos agua, tierra y montaña en aleatoridad
+     * @param m
+     * @param n 
+     */
     public void agregarTerrenos(int m, int n) {
          for (int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++) {
@@ -33,7 +54,11 @@ public class crearEscenarios {
             }
         }
     }
-    
+    /**
+     * metodo que agrega los comodines al escenario
+     * @param m
+     * @param n 
+     */
     public void agregarComodines(int m, int n) {
         for (int i = 0; i < (numerosAleatorios(m)); i++) {
             matrizEscenario[numerosAleatorios(m)-1][numerosAleatorios(n-1)-1]  = 7;
@@ -53,7 +78,12 @@ public class crearEscenarios {
         escenarioCrear.setTerrenos(matrizEscenario);
         archivoEscenario.crearArchivo(escenarioCrear, pathNombreInicial, nombreEscenario, tipoDeArchivoPath);
     }
-    
+    /**
+     * agrega los enemigos ya determinados al escenario
+     * @param m
+     * @param n
+     * @param agregarAVehiculos 
+     */
     public void agregarEnemigosAEscenario(int m, int n, Archivos<vehiculos> agregarAVehiculos) {
         int valorX;
         int valorY;
@@ -91,7 +121,11 @@ public class crearEscenarios {
             }
         }
     }
-    
+    /**
+     * metodo agrega los vehiculos enemigos a lista de archivos
+     * @param agregarVehiculos
+     * @return 
+     */
     public vehiculos asignarVehiculoAEnemigo(Archivos<vehiculos> agregarVehiculos) {
         try {
             return (vehiculos)agregarVehiculos.leerListaDeArchivos(".ve").get(numerosAleatorios(agregarVehiculos.leerListaDeArchivos(".ve").size())-1).clone();
@@ -100,7 +134,11 @@ public class crearEscenarios {
         }
         return null;
     }
-
+    /**
+     * metodo que agrega al jugador al escenario
+     * @param m
+     * @param n 
+     */
     private void agregarJugadorAEscenario(int m, int n) {
         int valorX = numerosAleatorios(m)-1;
         int valorY = numerosAleatorios(n)-1;
@@ -115,7 +153,11 @@ public class crearEscenarios {
             }
         }
     }
-    
+    /**
+     * metodo que genera un random para los tipos de terreno
+     * @param intervalo
+     * @return 
+     */
     public  int numerosAleatorios(int intervalo){
         return ((int)(Math.random()*intervalo)+1);
     }

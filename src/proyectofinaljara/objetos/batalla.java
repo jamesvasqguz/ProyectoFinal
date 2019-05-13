@@ -11,7 +11,11 @@ import proyectofinaljara.Gui.Iu.*;
  *
  * @author jara
  */
+/**
+ * Clase Batalla
+ */
 public class batalla {
+   //Atributos de la clase batalla
     private Random random;
     private jugador jugador;
     private List<vehiculos> vehiculosUtilizados;
@@ -24,7 +28,15 @@ public class batalla {
     private enemigo enemigoEnTurno;
     private int ataqueMasBonus;
     private boolean ataqueEspecialAvion;
-
+/**
+ * Constructor de la clase batalla
+ * @param jugador
+ * @param vehiculoSeleccionado
+ * @param escenario
+ * @param frameBatalla
+ * @param posicionJugadorX
+ * @param posicionJugadorY 
+ */
     public batalla(jugador jugador, vehiculos vehiculoSeleccionado, escenarios escenario, FrameBatalla frameBatalla, int posicionJugadorX, int posicionJugadorY) {
         this.jugador = jugador;
         this.vehiculosUtilizados = new ArrayList<>();
@@ -36,6 +48,10 @@ public class batalla {
         this.posicionJugadorY = posicionJugadorY;
     }
 
+    /**
+     * Setters and Getters de los atributos
+     * @param enemigoEnTurno 
+     */
     public void setEnemigoEnTurno(enemigo enemigoEnTurno) {
         this.enemigoEnTurno = enemigoEnTurno;
     }

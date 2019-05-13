@@ -11,7 +11,12 @@ import java.util.List;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
+/**
+ * Clase abstracta vehiculo
+ * 
+ */
 public abstract class vehiculos implements Cloneable, Serializable{
+   //atributos de la clase abstracta vehiculos
     private String nombreVehiculo;
     private float punteria;
     private int hp;
@@ -33,6 +38,12 @@ public abstract class vehiculos implements Cloneable, Serializable{
     public final int NIVEL = 1;
     public final int EXPERIENCIA = 0;
 
+    /**
+     * constructor de la clase vehiculos
+     * @param nombreVehiculo
+     * @param imagen
+     * @param boot 
+     */
     public vehiculos(String nombreVehiculo, JLabel imagen, boolean boot) {
         this.nombreVehiculo = nombreVehiculo;
         this.imagen = imagen;
@@ -62,7 +73,10 @@ public abstract class vehiculos implements Cloneable, Serializable{
     public boolean isBoot() {
         return boot;
     }
-
+/**
+ * Setters and Getters de los atributos privados
+ * @param boot 
+ */
     public void setBoot(boolean boot) {
         this.boot = boot;
     }
@@ -170,7 +184,10 @@ public abstract class vehiculos implements Cloneable, Serializable{
     public void agregarEnemigosDestruidos(String enemigosDestruidos) {
         this.enemigosDestruidos.add(enemigosDestruidos);
     }
-    
+    /**
+     * metodo que comprueba la subida de experiencia
+     * @param component 
+     */
     public  void comprobarExperiencia(Component component) {
         if (getExperiencia() >= (getNivel() * 100)) {
             setHp(HP_INICIAL*(getNivel()+1));

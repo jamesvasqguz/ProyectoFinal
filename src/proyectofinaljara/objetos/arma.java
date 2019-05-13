@@ -1,18 +1,17 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package proyectofinaljara.objetos;
 
 import java.io.Serializable;
 
 /**
  *
- * @author 50241
+ * @author jara
+ */
+
+/**
+ * Clase arma
  */
 public class arma implements Cloneable, Serializable{
-    
+    //Atributos de la clase arma
     private final String nombreDelArma;
     private int municiones;
     private final int municionesParaResetearEnemigo;
@@ -25,6 +24,14 @@ public class arma implements Cloneable, Serializable{
     private final int CALIDAD_EPICA = 2;
     private final int CALIDAD_LEGENDARIA = 1;
 
+    /**
+     * Constructor de la clase arma 
+     * @param nombreDelArma
+     * @param municiones
+     * @param calibreDeBala
+     * @param calidad
+     * @param precio 
+     */
     public arma(String nombreDelArma, int municiones, int calibreDeBala, String calidad, int precio) {
         this.nombreDelArma = nombreDelArma;
         this.municiones = municiones;
@@ -34,8 +41,8 @@ public class arma implements Cloneable, Serializable{
         municionesParaResetearEnemigo = municiones;
     }
 
-    /*Metodo para clonar el arma:
-    Se utiliza para realizar una copia del arma y asignarsela al jugador cuando la compre.
+    /**Metodo para clonar el arma:
+    *Se utiliza para realizar una copia del arma y asignarsela al jugador cuando la compre.
     */
     @Override
     public Object clone() throws CloneNotSupportedException {
@@ -83,7 +90,10 @@ public class arma implements Cloneable, Serializable{
     private void setDanio(int danio) {
         this.danio = danio;
     }
-    
+    /**
+     * metod que calcula el dañio de la bala 
+     * @param calidad 
+     */
     public void calcularDanioPorBala(int calidad) {
         switch (calidad) {
             case 1:
@@ -102,7 +112,9 @@ public class arma implements Cloneable, Serializable{
                 throw new AssertionError();
         }
     }
-    
+    /**
+     * metodo que muestra la informacion del arma
+     */
     public void mostrarInformacionArma() {
         calcularDanioPorBala(comprobarCalidad(calidad));
         System.out.println("\nNombre del Arma: " + getNombreDelArma());
@@ -112,7 +124,11 @@ public class arma implements Cloneable, Serializable{
         System.out.println("Daño por ataque: " + getDanio());
         System.out.println("Municiones: " + getMuniciones());
     }
-    
+    /**
+     * metodo que comprueba la calidad del arma
+     * @param calidad
+     * @return 
+     */
         public  int  comprobarCalidad(String calidad) {
         if (calidad.equalsIgnoreCase("Básica")) {
             return  1;

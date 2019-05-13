@@ -12,13 +12,24 @@ import proyectofinaljara.Gui.Iu.*;
  *
  * @author jara
  */
+/**
+ * clase escenarios
+ *
+ */
 public class escenarios implements Cloneable, Serializable{
+    // atributos de la clase
     private String nombreEscenario;
     private int terrenos [][];
     private int valorM;
     private int valorN;
     private List<enemigo> enemigos = new ArrayList<>();
-
+/**
+ * constructor de la clase escenarios
+ * @param nombreEscenario
+ * @param terrenos
+ * @param valorM
+ * @param valorN 
+ */
     public escenarios(String nombreEscenario, int[][] terrenos, int valorM, int valorN) {
         this.nombreEscenario = nombreEscenario;
         this.terrenos = terrenos;
@@ -26,6 +37,10 @@ public class escenarios implements Cloneable, Serializable{
         this.valorN = valorN;
     }
 
+    /**
+     * Setter and Getters de los atributos
+     * @return 
+     */
     public List<enemigo> getEnemigos() {
         return enemigos;
     }

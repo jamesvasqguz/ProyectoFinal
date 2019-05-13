@@ -8,6 +8,10 @@ import java.util.List;
  *
  * @author jara
  */
+/**
+ * Clase jugador
+ * 
+ */
 public class jugador implements Cloneable, Serializable {
   private int oro;
     private int contadorGanados;
@@ -18,6 +22,10 @@ public class jugador implements Cloneable, Serializable {
     private List<vehiculos> vehiculosBoots;
     private List<objetos> objetos;
 
+    /**
+     * constructor de la clase jugador
+     * @param nombreJugador 
+     */
     public jugador(String nombreJugador) {
         this.nombreJugador = nombreJugador;
         this.oro = 200;
@@ -27,7 +35,9 @@ public class jugador implements Cloneable, Serializable {
         this.vehiculosBoots = new ArrayList<>();
         this.vehiculosEnBatallas = new ArrayList<>();
     }
-
+/**
+ * Setter and Getters de todas los atributos de la clase jugador
+ */
     public jugador() {
     }
 
@@ -90,7 +100,11 @@ public class jugador implements Cloneable, Serializable {
     public void agregarObjetos(objetos objeto) {
         this.objetos.add(objeto);
     }
-    
+    /**
+     * Metodo que retorna que no se puede clonar un jugador
+     * @return
+     * @throws CloneNotSupportedException 
+     */
     @Override
     public Object clone() throws CloneNotSupportedException  {
         Object objeto = null; 
@@ -101,7 +115,9 @@ public class jugador implements Cloneable, Serializable {
         }
         return objeto;
     }
-
+/**
+ * metodo que indica cuando perdio el jugador
+ */
     void perdio() {
         this.vehiculosEnBatallas.forEach((vehiculosEnBatalla) -> {
             vehiculosEnBatalla.agregarValoresIniciales();
